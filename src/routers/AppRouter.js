@@ -6,6 +6,7 @@ import PrivateRoute from './PrivateRoute';
 import Routes from '../constants/routes';
 import NotFoundPage from '../pages/NotFoundPage';
 import Loading from '../components/Loading';
+import UserProfile from '../components/UserProfile';
 
 /**
  * El módulo loadable (https://loadable-components.com/docs/code-splitting/)
@@ -28,6 +29,7 @@ const AsyncArticles = loadable( () => import( '../pages/Articles' ), loadableOpt
 const AsyncArticle = loadable( () => import( '../pages/Article' ), loadableOptions );
 const AsyncAbout = loadable( () => import( '../pages/About' ), loadableOptions );
 const AsyncLogout = loadable( () => import( '../pages/Logout' ), loadableOptions );
+const AsyncUserProfilePage = loadable( () => import('../pages/UserProfile'), loadableOptions );
 
 
 /**
@@ -52,6 +54,7 @@ const AppRouter = () => (
     <PrivateRoute path={ Routes.PRIVATE } component={ AsyncPrivate } />
     <PrivateRoute path={ Routes.ARTICLE_ID } component={ AsyncArticle } />
     <PrivateRoute path={ Routes.LOGOUT } component={ AsyncLogout } />
+    <PrivateRoute path={ Routes.USERPROFILE } component={ AsyncUserProfilePage } />
 
     <Route component={ NotFoundPage } />
   </Switch>
